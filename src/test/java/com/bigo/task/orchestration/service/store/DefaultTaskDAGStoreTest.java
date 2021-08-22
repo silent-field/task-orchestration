@@ -78,7 +78,7 @@ public class DefaultTaskDAGStoreTest extends AbstractUnitTest {
 		List<TaskNode> nodes = new ArrayList<>();
 		long currentTime = System.currentTimeMillis();
 		for (int i = 0; i < 6; i++) {
-			String taskId = currentTime + "-" + (i + 1);
+			String taskId = String.valueOf(i + 1);
 
 			TaskNode taskNode = new TaskNode(taskId, String.valueOf(currentTime));
 			taskNode.setName("task" + taskId);

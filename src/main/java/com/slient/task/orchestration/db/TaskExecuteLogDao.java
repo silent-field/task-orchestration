@@ -1,6 +1,8 @@
 package com.slient.task.orchestration.db;
 
 import com.slient.task.orchestration.model.TaskLog;
+import io.netty.util.internal.StringUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -29,7 +31,9 @@ public class TaskExecuteLogDao {
 		return dagJdbcTemplate.update(INSERT_SQL,
 				record.getDag(), record.getTaskId(), record.getTaskGroupId(), record.getVersion(),
 				record.getPreVersion(), record.getUpstreamVersion(), record.getScene(),
-				record.getXxlParams(), record.getExecuteParams(), record.getStartTime(), record.getEndTime(),
+				StringUtils.isBlank(record.getXxlParams()) ? "" : record.getXxlParams(),
+				StringUtils.isBlank(record.getExecuteParams()) ? "" : record.getExecuteParams(),
+				record.getStartTime(), record.getEndTime(),
 				record.getCostTime()
 		);
 	}

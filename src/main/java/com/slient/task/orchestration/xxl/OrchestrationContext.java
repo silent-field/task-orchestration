@@ -81,8 +81,9 @@ public class OrchestrationContext {
 		String xxlJobParam = XxlJobContext.getXxlJobContext().getJobParam();
 		if (StringUtils.isNotBlank(xxlJobParam)) {
 			triggerParam = GsonUtils.fromJson(xxlJobParam, TriggerParam.class);
+		} else {
+			triggerParam = new TriggerParam();
 		}
-
 
 		Map<String, String> paramMap = ParamHelper.getParamMap(triggerParam.getExecutorParams());
 
@@ -92,6 +93,8 @@ public class OrchestrationContext {
 			if (null != temp) {
 				triggerScene = temp;
 			}
+		} else {
+			triggerScene = TriggerScene.NORMAL;
 		}
 
 		log.info("triggerParam:{}, 触发类型：{}", triggerParam, triggerScene.getDesc());
