@@ -7,7 +7,10 @@
     <groupId>com.silent</groupId>
     <artifactId>task-orchestration</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>tesk-orchestration-test</module>
+    </modules>
+    <packaging>pom</packaging>
     <description>任务编排</description>
 
     <name>task-orchestration</name>
@@ -69,6 +72,13 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.13</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.75</version>
         </dependency>
 
         <!-- test -->
